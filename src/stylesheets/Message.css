@@ -1,0 +1,50 @@
+.message {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .message.owner {
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  .messageInfo {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .message.owner .messageInfo {
+    margin-left: 10px;
+  }
+  
+  .messageInfo img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .messageContent {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .message.owner .messageContent {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .messageContent p {
+    margin: 0;
+  }
+  
+  .messageContent img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 5px;
+  }
+  

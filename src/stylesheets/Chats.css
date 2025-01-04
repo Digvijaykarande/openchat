@@ -1,0 +1,77 @@
+.chats {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9; 
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    padding: 10px;
+    overflow-y: auto; 
+  }
+  .chatsdiv{
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .userdiv{
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .userLatter{
+    border: 2px solid #a9a6a6;
+    border-radius: 50%;
+    padding: 4px;
+    background: #837878;
+    color: white;
+  }
+  .usernameh3{
+    margin: 0 10px;
+    flex: 1;
+  }  
+  .userchat {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: white; 
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .userchat:hover {
+    background-color: #f1f1f1; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .userchat p {
+    margin: 0;
+    padding: 2px 0;
+    font-size: 14px;
+    color: #333; 
+  }
+  
+  .userchat p:first-child {
+    font-weight: bold; 
+    font-size: 16px;
+  }
+  
+  .userchat p:last-child {
+    color: #555; 
+    font-size: 14px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+
+  .chats p {
+    text-align: center;
+    color: #888; 
+    font-size: 16px;
+    padding: 20px 0;
+  }
+  

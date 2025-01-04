@@ -1,0 +1,56 @@
+.search {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .searchForm {
+    margin-bottom: 10px;
+    width:90%;
+  }
+  
+  .searchForm input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s;
+    width: 98%;
+  }
+  
+  .searchForm input:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  }
+  
+  .userChat {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .userChat:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .userChatInfo {
+    margin-left: 10px;
+  }
+  
+  .userChatInfo span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  span.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+    text-align: center;
+  }
+  

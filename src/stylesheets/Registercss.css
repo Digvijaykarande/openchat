@@ -1,0 +1,94 @@
+form {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  form input {
+    width: 96%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+  }
+  
+  form input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  form button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  form button:hover {
+    background-color: #0056b3;
+  }
+  
+  form button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  form button:nth-child(2) {
+    background-color: #db4437; /* Google Red */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  form button:nth-child(2):hover {
+    background-color: #c1351d;
+  }
+  
+  form button:nth-child(2):disabled {
+    background-color: #eeeeee;
+  }
+  
+  form span {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  form p {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  form p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  form p a:hover {
+    color: #0056b3;
+  }
+  @media (max-width: 500px) {
+  
+    form {
+      max-width: 78vw;
+      height: 50vh;
+    }
+  }  
