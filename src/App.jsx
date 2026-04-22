@@ -19,7 +19,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter basename="/openchat/">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={
             <ProtectedRoute>
