@@ -8,7 +8,8 @@ export const ChatContextProvider = ({ children }) => {
 
   const INITIAL_STATE = {
     chatId: "null",
-    user: {},
+    user: null,
+    isAiChat: false, // Track AI chat state
   };
 
   const chatReducer = (state, action) => {
@@ -16,16 +17,26 @@ export const ChatContextProvider = ({ children }) => {
       case "CHANGE_USER":
         return {
           ...state,
+          isAiChat: false, // Reset AI chat when selecting a user
           user: action.payload,
           chatId:
-            currentUser.uid > action.payload.uid
+            action.payload && currentUser.uid > action.payload.uid
               ? currentUser.uid + action.payload.uid
-              : action.payload.uid + currentUser.uid,
+              : action.payload?.uid + currentUser.uid,
         };
+
+      case "TOGGLE_AI_CHAT":
+        return {
+          ...state,
+          isAiChat: true,
+          user: null, // Reset user when AI chat is selected
+          chatId: "ai_chat", // Dummy chatId for AI
+        };
+
       default:
         return state;
     }
-  }; 
+  };
 
   const [state, dispatch] = useReducer(chatReducer, INITIAL_STATE);
 

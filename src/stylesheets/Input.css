@@ -1,64 +1,162 @@
 .input {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-top: 3px solid #bcd2f0;
-    background-color: #f1f5f9;
-  }
-  
-  .input input {
-    flex: 1;
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: 1px solid #cbd5e1;
-    border-radius: 20px;
-    outline: none;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .input input:focus {
-    border-color: #4caf50;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-  }
-  
-  .send {
-    margin-left: 10px;
-  }
-  
-  .send button {
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: white;
-    font-size: 0.9rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .send button:hover {
-    background-color: #388e3c;
-  }
-  
-  .send button:disabled {
-    background-color: #a5d6a7;
-    cursor: not-allowed;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .input {
-      padding: 8px;
-    }
-  
-    .input input {
-      font-size: 0.9rem;
-    }
-  
-    .send button {
-      padding: 8px 15px;
-      font-size: 0.8rem;
-    }
-  }
-  
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+  background: rgba(10,10,15,0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 10;
+  position: relative;
+}
+
+.input-field-wrap {
+  flex: 1;
+  position: relative;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  padding: 4px 8px 4px 16px;
+  gap: 6px;
+}
+
+.input-field-wrap:focus-within {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.input-field-wrap input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  padding: 8px 0;
+  resize: none;
+  line-height: 1.5;
+}
+
+.input-field-wrap input::placeholder {
+  color: var(--text-muted);
+}
+
+.emoji-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.emoji-btn:hover {
+  color: var(--amber);
+  transform: scale(1.15);
+}
+
+/* Emoji picker panel */
+.emoji-panel {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  box-shadow: var(--shadow-md);
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 240px;
+  animation: popIn 0.18s var(--transition-spring);
+}
+
+.emoji-panel button {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.emoji-panel button:hover {
+  background: var(--bg-hover);
+  transform: scale(1.15);
+}
+
+.send-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #9b87ff);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-spring);
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+.send-btn:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+.send-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.send-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Typing indicator */
+.typing-indicator {
+  padding: 4px 16px 0;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  min-height: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.typing-dots {
+  display: flex;
+  gap: 3px;
+}
+
+.typing-dots span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  animation: bounce 1.2s ease-in-out infinite;
+}
+
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-4px); opacity: 1; }
+}

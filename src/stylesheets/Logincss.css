@@ -1,126 +1,211 @@
-/* General form styling */
-form {
+/* ---- Shared auth styles ---- */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-page::before {
+  content: '';
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,106,255,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.auth-card {
   width: 100%;
-  max-width: 340px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 40px 36px;
+  position: relative;
+  box-shadow: var(--shadow-md);
+  animation: authIn 0.4s var(--transition-spring);
+}
+
+@keyframes authIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.auth-logo-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--accent), #a78bfa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.auth-logo-text {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.auth-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.auth-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.auth-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
 }
 
-/* Input field styling */
-form input {
-  width: 96%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  transition: border-color 0.3s ease;
+.auth-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-form input:focus {
-  border-color: #007bff;
+.auth-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.auth-input {
+  padding: 12px 14px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.88rem;
   outline: none;
+  transition: var(--transition);
+  width: 100%;
 }
 
-/* Button styling */
-form button {
-  padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #007bff;
+.auth-input::placeholder { color: var(--text-muted); }
+
+.auth-input:focus {
+  border-color: var(--border-focus);
+  background: var(--bg-card);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.auth-btn {
+  padding: 13px;
+  background: linear-gradient(135deg, var(--accent), #9b87ff);
   border: none;
-  border-radius: 5px;
+  border-radius: var(--radius-md);
+  color: white;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: var(--transition-spring);
+  box-shadow: 0 4px 16px var(--accent-glow);
+  margin-top: 4px;
 }
 
-form button:hover {
-  background-color: #0056b3;
+.auth-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px var(--accent-glow);
 }
 
-form button:disabled {
-  background-color: #cccccc;
+.auth-btn:disabled {
+  opacity: 0.6;
   cursor: not-allowed;
 }
 
-/* Error message styling */
-form span {
-  color: red;
-  font-size: 14px;
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.auth-divider span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.auth-google-btn {
+  padding: 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.auth-google-btn:hover {
+  background: var(--bg-card);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.auth-error {
+  padding: 10px 14px;
+  background: rgba(255,92,124,0.1);
+  border: 1px solid rgba(255,92,124,0.25);
+  border-radius: var(--radius-md);
+  color: var(--red);
+  font-size: 0.8rem;
   text-align: center;
 }
 
-/* Paragraph styling */
-form p {
-  font-size: 14px;
+.auth-link-text {
   text-align: center;
-  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 6px;
 }
 
-/* Link styling */
-form p a {
-  color: #007bff;
+.auth-link-text a {
+  color: var(--accent-bright);
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  font-weight: 500;
 }
 
-form p a:hover {
-  color: #0056b3;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  /* Adjust the form padding and maximum width */
-  form {
-    padding: 15px;
-    max-width: 350px;
-  }
-
-  /* Make the input fields and button smaller */
-  form input,
-  form button {
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  /* Adjust paragraph and span font sizes */
-  form p {
-    font-size: 12px;
-  }
-
-  form span {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 500px) {
-  
-  form {
-    max-width: 78vw;
-    height: 34vh;
-  }
-
-  /* Further reduce input and button sizes */
-  form input,
-  form button {
-    font-size: 13px;
-    padding: 6px;
-  }
-
-  /* Adjust paragraph and span font sizes */
-  form p {
-    font-size: 11px;
-  }
-
-  form span {
-    font-size: 11px;
-  }
-}
+.auth-link-text a:hover { text-decoration: underline; }

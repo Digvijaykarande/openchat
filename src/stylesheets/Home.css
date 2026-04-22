@@ -1,8 +1,41 @@
-.homepage{
-    width:100vw;
-    height: 100vh;
-    background-color:#ebebeb;
-    display: flex;
-    justify-content: space-between;
-    overflow: hidden;
+.homepage {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-base);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient background orbs */
+.homepage::before {
+  content: '';
+  position: fixed;
+  top: -200px;
+  left: -100px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,106,255,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.homepage::after {
+  content: '';
+  position: fixed;
+  bottom: -150px;
+  right: 200px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(52,217,110,0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .homepage {
+    flex-direction: column;
+  }
 }

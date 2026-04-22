@@ -1,18 +1,19 @@
-import React from 'react'
-import Navbar from './Navbar'
-import Chats from './Chats'
-import "../stylesheets/Sidebar.css"
-import Search from './Search'
+import React from "react";
+import Navbar from "./Navbar";
+import Chats from "./Chats";
+import Search from "./Search";
+import "../stylesheets/Sidebar.css";
+
 function Sidebar() {
   return (
-    <>
-    <div className='sidebar'>
-    <Navbar />
-    <Search />
-    <Chats />
+    <div className="sidebar-heading">
+      <Navbar />
+      <Search />
+      <div className="sidebar">
+        <Chats />
+      </div>
     </div>
-    </>
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;

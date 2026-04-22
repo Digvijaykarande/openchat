@@ -1,17 +1,15 @@
-import React, { useState } from 'react'
-import Sidebar from './Sidebar'
-import Chat from './Chat'
-import "../stylesheets/Home.css";
+import React from 'react';
+import Sidebar from './Sidebar';
+import Chat from './Chat';
+import '../stylesheets/Home.css';
 
- export function Home() {
+function Home() {
   return (
-   <>
-   <div className='homepage'>
+    <div className="homepage">
       <Sidebar />
       <Chat />
-   
-   </div>
-    </>
-  )
+    </div>
+  );
 }
 
+export default Home;
